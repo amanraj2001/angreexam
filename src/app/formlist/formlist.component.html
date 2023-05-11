@@ -1,0 +1,18 @@
+<p>formlist works!</p>
+<div class="container">
+  <table class="table">
+    <tr *ngFor="let item of pusheddata;let i = index">
+      <td >{{item.FullName.FirstName}}</td>
+      <td >{{item.FullName.MiddleName}}</td>
+      <td >{{item.FullName.LastName}}</td>
+      <td >{{item.EmailID}}</td>
+      <td >{{item.Address.Building}}</td>
+      <td >{{item.Address.Area}}</td>
+      <td >{{item.Address.State}}</td>
+      <td >{{item.Address.City}}</td>
+      <td >{{item.Gender.Gen}}</td>
+      <td >{{item.EducationDetails.tenth.marks}}</td>
+      <button *ngIf="a" class="btn btn-primary" (click)="del(i)">Delete </button>
+    </tr>
+  </table>
+</div>

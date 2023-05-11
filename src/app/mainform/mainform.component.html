@@ -1,0 +1,104 @@
+<p>mainform works!</p>
+<div class="container">
+  <form [formGroup]="form">
+    <div formGroupName="FullName">
+
+      <label for="">Frist Name</label>
+      <input type="text" formControlName="FirstName" class="form-control">
+      <label for="">Middle Name</label>
+      <input type="text" formControlName="MiddleName" class="form-control">
+      <label for="">Last Name</label>
+      <input type="text" formControlName="LastName" class="form-control">
+    </div>
+    <label for="">Email</label>
+
+    <input type="text" formControlName="EmailID" class="form-control">
+    <div formGroupName="Address">
+
+      <label for="">Building</label>
+      <input type="text" formControlName="Building" class="form-control">
+      <label for="">Area</label>
+      <input type="text" formControlName="Area" class="form-control">
+      <div >
+        <label for="">State</label>
+        <select formControlName="State" class="form-select" aria-label="Default select example" (change)="cng($event)" >
+          <option selected>Open this select menu</option>
+          <ng-container *ngFor="let item of stat;let i = index"  >
+
+
+            <option [value]="item.StateID">{{item.StateName}}</option>
+          </ng-container>
+
+        </select>
+
+      </div>
+      <div>
+        <label for="">City</label>
+        <select formControlName="City" class="form-select" aria-label="Default select example"  >
+          <option selected>Open this select menu</option>
+          <ng-container *ngFor="let item of cit;let i = index"  >
+
+
+            <option>{{item.Name}}</option>
+          </ng-container>
+
+        </select>
+
+      </div>
+
+
+
+
+<!--
+    <div formArrayName="Skills">
+      <div formGroupName="">
+
+      </div>
+
+    </div> -->
+
+
+    </div>
+    <label for="">Gender</label>
+    <div formGroupName="Gender">
+
+      <div class="form-check">
+        <input class="form-check-input"  formControlName="Gen" value="Male" type="radio" name="Gen" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+        MAle
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input"  formControlName="Gen" value="Female" type="radio" name="Gen" id="flexRadioDefault2" >
+      <label class="form-check-label" for="flexRadioDefault2">
+        Female
+      </label>
+    </div>
+  </div>
+
+  <div formGroupName="EducationDetails">
+    <div formGroupName="tenth">
+      <input type="text" formControlName="marks" class="form-control">
+      <input type="text" formControlName="Grade" class="form-control">
+      <input type="text" formControlName="Yearofpass" class="form-control">
+
+    </div>
+    <div formGroupName="twelve">
+      <input type="text" formControlName="marks" class="form-control">
+      <input type="text" formControlName="Grade" class="form-control">
+      <input type="text" formControlName="Yearofpass" class="form-control">
+
+    </div>
+    <div formGroupName="Degree">
+      <input type="text" formControlName="marks" class="form-control">
+      <input type="text" formControlName="Grade" class="form-control">
+      <input type="text" formControlName="Yearofpass" class="form-control">
+
+    </div>
+
+  </div>
+
+    <button (click)="add()" class="btn btn-primary">Add Data</button>
+    {{form.value|json}}
+  </form>
+</div>
